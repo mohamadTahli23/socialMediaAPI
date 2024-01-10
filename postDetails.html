@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Final project</title>
+
+    <!-- Main Css Style -->
+    <link rel="stylesheet" href="mainStyle.css">
+
+    <!-- Import Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Import Axios -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <!--==============  Loader ==============  -->
+    <div id="loader" style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; margin: auto; text-align: center; z-index: 9999;  height: fit-content;">
+        <div class="lds-roller">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+    <!-- ==============//  Loader //==============  -->
+
+    <!-- ==============  Them Switcher  ============== -->
+    <div class="theme-container shadow-dark">
+        <div  id="theme-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+                <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+            </svg>
+        </div>
+    </div>
+    <!--==============// Them Switcher ///============== -->
+
+    <!-- ============== Modals ============= -->
+    <!-- Login Modal -->
+        <div class="modal fade" id="loginModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">UserName:</label>
+                                <input type="text" class="form-control" id="username-input">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Password:</label>
+                                <input type="password" class="form-control" id="password-input">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="loginBtnClicked()"> Login </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- //Login Modal// -->
+    <!-- Register Modal -->
+        <div class="modal fade" id="registerModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Register A new User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="register-name-input">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">UserName:</label>
+                                <input type="text" class="form-control" id="register-username-input">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Password:</label>
+                                <input type="password" class="form-control" id="register-password-input">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Profile Image:</label>
+                                <input type="file" class="form-control" id="register-Image-input">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="registerBtnClicked()"> Register </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- //Register Modal// -->
+
+    <!-- //============== Modals =============// -->
+
+
+        <!-- Navigation Bar Cont -->
+        <div class="container">
+            <nav class="navbar  navbar-expand-lg  mt-2 shadow rounded">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold" href="home.html">Tahli</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  id="profileLink" class="nav-link" href="#">Profile</a>
+                            </li>
+                        </ul>
+                        <!-- For Non leggin user -->
+                        <div class="d-flex justify-content-end w-100" id="loginContainer">
+                            <button type="button" class="btn btn-outline-success mx-2" id="login" data-bs-toggle="modal" data-bs-target="#loginModel">Login</button>
+                            <button type="button" class="btn btn-outline-success" id="register" data-bs-toggle="modal" data-bs-target="#registerModel"> Register</button>
+                        </div>
+                        <!-- //For Non leggin user// -->
+
+                        <!-- For login user -->
+                        <div class="d-flex justify-content-end w-100" id="logoutContainer"  >
+                            <img src="./Profile-pics/profile-icon-design.jpg" alt="" id="profile-image" class="rounded-circle" style="width: 40px; height: 40px;">
+                            <h6 id="usernameAtNavbar" class="center mx-2 my-0">Mohamad</h6>
+                            <button type="button" onclick="logout()" class="btn btn-outline-danger mx-2" id="logout" >Logout</button>
+                        </div>
+                        <!-- //For login user// -->
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!--// Navigation Bar Cont // -->
+    
+        <!-- Main Content -->
+        <div class="col-9 mx-auto">
+            <div class="container">
+
+                <!-- User Post Info -->
+                <div class="mt-5">
+                    <h1><span id="userNameSpan">Mohamad</span> Post</h1>
+                </div>
+        
+                <!-- Post -->
+                
+                <div class="mt-5" id="post">
+                    
+                    <!-- post Card -->
+                    <div class="card shadow ">
+                        <div class="card-header">
+                            <img src="./Profile-pics/profile-icon-design.jpg" alt="" id="profile-image" class="rounded-circle" style="width: 40px; height: 40px;">
+                            <span id="username" class="fw-bold">@TahliMohamad</span>
+                        </div>
+                        <div class="card-body">
+                            <img src="./Placeholder/Nutraul.jpg" alt="" id="post-image" style="max-width: 100%;">
+        
+                            <h6 style="color: rgb(156, 156, 156);" id="created-time" class="mt-1"> 2 min ago</h6>
+        
+                            <h5 id="title">Hello word</h5>
+                            <p id="body">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Laborum repellat pariatur accusantium nihil, corrupti illo commodi natus, iusto consequuntur iure consequatur architecto libero quos recusandae rem exercitationem, illum necessitatibus. Praesentium!
+        
+                            </p>
+                            <hr>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                </svg>
+                                <span id="comments">(3) Comments</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+
+                    <div id="comments" class="p-3 bg-dark shadow rounded pb-5">
+                        <div>   
+                            <img src="./Profile-pics/profile-pic.jpg" alt="" class="rounded-circle" style="width: 40px; height: 40px;">
+                            <h5 id="commentUserName">@Mohamad</h5>
+                        </div>
+
+                        <div class="my-2" id="commentBody">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam nam in a natus maxime! Numquam, repudiandae dicta recusandae eligendi corrupti eaque error.
+                            Illo sint eaque similique possimus. Labore, sapiente ab.
+                        </div>
+                    </div>
+
+                    <!-- Add Comment field -->
+                    <div class="input-group my-2" >
+                        <input id = "commentInput" type="text" class="form-control" placeholder="Comment Here" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button  class="btn btn-outline-secondary " type="button" id="commentButton">Button</button>
+                    </div>
+                    <div id="commentHelper" class="form-text">
+                    </div>
+                    
+                    <!--// Comments //-->
+                    <!--// post Card //-->
+                </div>
+                <!-- // Post // -->
+        
+        
+            </div>
+        </div>
+        <!-- // Main Content // -->
+    
+
+
+<!-- Sharing Logic Java Script File -->
+<script src="./js/mainLogic.js"></script>
+<!-- Post Details Script -->
+<script src="./js/postDetailsScript.js"></script>
+
+</body>
+
+</html>
