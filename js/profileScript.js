@@ -19,13 +19,19 @@ function getUser() {
 
         const user = response.data.data
 
+        // Check if profile image Not Empty
+        let profileImage = user.profile_image
+        if(typeof profileImage === "object" && profileImage !== null) {
+            profileImage = "./Profile-pics/profile-icon-design.jpg"
+        }
+
         document.getElementById("userEmail").innerHTML = user.email ? user.email : "";
         document.getElementById("nameOfUser").innerHTML = user.name;
         document.getElementById("userName").innerHTML = user.username;
         document.getElementById("username-posts").innerHTML = user.username;
         document.getElementById("postsCount").innerHTML = user.posts_count;
         document.getElementById("commentsCounts").innerHTML = user.comments_count;
-        document.getElementById("main-info-image").src = user.profile_image;
+        document.getElementById("main-info-image").src = profileImage;
         console.log(user)
 
     })
@@ -133,6 +139,6 @@ async function getPosts() {
 }
 
 
-
+themSwitcher()
 profileClicked()
 

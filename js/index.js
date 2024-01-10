@@ -1,7 +1,6 @@
 
 
 
-themSwitcher()
 
 
 
@@ -137,5 +136,6 @@ function userClicked(userId) {
 
 
 
-
+themSwitcher()
+profileClicked()
 

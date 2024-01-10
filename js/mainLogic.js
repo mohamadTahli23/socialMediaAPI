@@ -355,12 +355,14 @@ function themSwitcher() {
         setLight()
         console.log("hi light")
     }else {
+        localStorage.setItem("theme", theme)
         theme = localStorage.getItem("theme")
         setDark()
         console.log("hi dark")
     }
 
     container.addEventListener("click", setTheme);
+
     function setTheme() {
         switch (theme) {
         case "dark":
