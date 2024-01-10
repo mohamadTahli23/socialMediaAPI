@@ -398,3 +398,4 @@ function themSwitcher() {
 
 }
 
+themSwitcher()

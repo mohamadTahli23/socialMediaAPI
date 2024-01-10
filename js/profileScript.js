@@ -132,6 +132,7 @@ async function getPosts() {
     });
 }
 
+
+
 profileClicked()
 
-themSwitcher()

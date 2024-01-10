@@ -1,29 +1,7 @@
 
 
-// Show posts 
-/* The Data that we need from API:
-=> title
-=> body
-=> image of post
-=> Created at 
-=> comments_count
-=> FROM #Author# Object  ====> profile_image , username , 
- */
 
-
-
-/* let profileImage = document.getElementById("profile-image")
-let username = document.getElementById("username")
-
-let title = document.getElementById("title")
-let body = document.getElementById("body")
-let postImage = document.getElementById("post-image")
-let createdTime = document.getElementById("created-time")
-let comments = document.getElementById("comments") */
-
-
-
-
+themSwitcher()
 
 
 
@@ -158,7 +136,6 @@ function userClicked(userId) {
 
 
 
-themSwitcher()
 
 
 
