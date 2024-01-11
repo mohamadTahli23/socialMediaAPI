@@ -52,6 +52,7 @@ function setUpUi() {
             commentButton.classList.remove("remove-click")
             document.getElementById("commentHelper").innerHTML = ""
         }
+        showUpElement()
         loginDiv.style.setProperty("display" , "none", "important")
         logoutDiv.style.setProperty("display" , "flex" , "important")
         document.getElementById("usernameAtNavbar").innerHTML = user.username;
@@ -312,6 +313,10 @@ function confirmDelete() {
     
 }
 
+function postClicked(postId) {
+    window.location = `./postDetails.html?postId=${postId}`
+}
+
 function profileClicked() {
     let profile = document.getElementById("profileLink"); 
     profile.addEventListener("click" , () => {
@@ -399,5 +404,30 @@ function themSwitcher() {
     }
 
 }
+
+
+// Show and hidden them button and add button
+function showUpElement() {
+    // keep track of previous scroll position
+    let prevScrollPos = window.scrollY;
+    window.addEventListener('scroll', function() {
+    // current scroll position
+    const currentScrollPos = window.scrollY;
+
+    if (prevScrollPos > currentScrollPos) {
+        // user has scrolled up
+        document.querySelector('#addBtn').classList.add('show');
+        document.querySelector('.theme-container').classList.add('show');
+    } else {
+        // user has scrolled down
+        document.querySelector('#addBtn').classList.remove('show');
+        document.querySelector('.theme-container').classList.remove('show');
+    }
+
+    // update previous scroll position
+    prevScrollPos = currentScrollPos;
+    });
+}
+
 
 themSwitcher()

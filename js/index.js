@@ -124,9 +124,7 @@ function logout() {
     getPosts()
 }
 
-function postClicked(postId) {
-    window.location = `./postDetails.html?postId=${postId}`
-}
+
 
 
 function userClicked(userId) {
@@ -137,5 +135,6 @@ function userClicked(userId) {
 
 
 themSwitcher()
+
 profileClicked()
 

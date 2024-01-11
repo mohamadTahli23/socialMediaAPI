@@ -104,7 +104,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: 0.5s;
+        transition: 0.4s;
         cursor: pointer;
     }
     
@@ -164,7 +164,7 @@ img {
 #addBtn {
     position: fixed;
     right: 5%;
-    bottom: 5%;
+    bottom: -100px;
     height: 60px;
     width: 60px;
     font-size: 50px;
@@ -174,21 +174,24 @@ img {
     cursor: pointer;
     box-shadow: 0 10px 10px rgb(0, 0, 0 , 0.3);
     color: white;
+    transition: 0.4s;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #addBtn  {
         font-size: 30px;
         line-height: 1.2;
         height: 40px;
         width: 40px;
         right: 3%;
+        z-index: 1;
     }
     .theme-container  {
         height: 40px;
         width: 40px;
         right: 3%;
-        bottom: 15%;
+        bottom: 13%;
+        z-index: 1;
     }
 }
 
@@ -204,6 +207,11 @@ img {
 .user-main-info {
     font-size: 20px;
     font-weight: 500;
+}
+
+.show {
+    bottom: 5% !important;
+
 }
 
 
