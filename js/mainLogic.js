@@ -416,12 +416,12 @@ function showUpElement() {
 
     if (prevScrollPos > currentScrollPos) {
         // user has scrolled up
-        document.querySelector('#addBtn').classList.add('show');
-        document.querySelector('.theme-container').classList.add('show');
+        document.querySelector('#addBtn').classList.add('show-up');
+        document.querySelector('.theme-container').classList.add('show-up');
     } else {
         // user has scrolled down
-        document.querySelector('#addBtn').classList.remove('show');
-        document.querySelector('.theme-container').classList.remove('show');
+        document.querySelector('#addBtn').classList.remove('show-up');
+        document.querySelector('.theme-container').classList.remove('show-up');
     }
 
     // update previous scroll position
