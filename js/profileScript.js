@@ -32,7 +32,7 @@ function getUser() {
         document.getElementById("postsCount").innerHTML = user.posts_count;
         document.getElementById("commentsCounts").innerHTML = user.comments_count;
         document.getElementById("main-info-image").src = profileImage;
-        console.log(user)
+        //console.log(user)
 
     })
     .finally(() => {
@@ -59,7 +59,7 @@ async function getPosts() {
     let json = await response.json()
     toggleLoader(false)
 
-    console.log(json.data)
+    //console.log(json.data)
     document.getElementById("user-posts").innerHTML = ""
 
     // Loop on Posts Data //

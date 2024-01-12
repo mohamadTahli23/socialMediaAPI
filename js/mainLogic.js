@@ -231,7 +231,7 @@ function createNewPostClicked() {
         formData.append("_method" , "put")
     }
 
-    toggleLoader(true)
+    toggleLoader(true);
     axios.post(`${url}` , formData , {
         headers: headers
     })
@@ -329,9 +329,11 @@ function profileClicked() {
 function toggleLoader(show = true) {
     let loader = document.getElementById("loader")
     if(show == true && loader != null) {
+        loader.style.zIndex = "9999999"
         loader.style.visibility = "visible"
 
     }else if(show == false && loader != null) {
+        loader.style.zIndex = "9999999"
         loader.style.visibility = "hidden"
     }
 }
@@ -358,12 +360,10 @@ function themSwitcher() {
     if(localStorage.getItem("theme") != null && localStorage.getItem("theme") == "light" ) {
         theme = localStorage.getItem("theme")
         setLight()
-        console.log("hi light")
     }else {
         localStorage.setItem("theme", theme)
         theme = localStorage.getItem("theme")
         setDark()
-        console.log("hi dark")
     }
 
     container.addEventListener("click", setTheme);
@@ -391,6 +391,7 @@ function themSwitcher() {
         }, 300);
         themeIcon.classList.add("change");
         themeIcon.innerHTML = sun;
+        document.getElementById("navbar").style.backgroundColor = "white"
     }
     function setDark() {
         root.setAttribute("data-bs-theme" , "dark")
@@ -401,6 +402,7 @@ function themSwitcher() {
         }, 300);
         themeIcon.classList.add("change");
         themeIcon.innerHTML = moon;
+        document.getElementById("navbar").style.backgroundColor = "#212529"
     }
 
 }
@@ -413,14 +415,20 @@ function showUpElement() {
     window.addEventListener('scroll', function() {
     // current scroll position
     const currentScrollPos = window.scrollY;
+    // Add Button
+    let addBtn = document.getElementById("addBtn")
 
     if (prevScrollPos > currentScrollPos) {
         // user has scrolled up
-        document.querySelector('#addBtn').classList.add('show-up');
+        if(addBtn != null)  {    
+            addBtn.classList.add('show-up');
+        }
         document.querySelector('.theme-container').classList.add('show-up');
     } else {
         // user has scrolled down
-        document.querySelector('#addBtn').classList.remove('show-up');
+        if(addBtn != null)  {    
+            addBtn.classList.remove('show-up');
+        }
         document.querySelector('.theme-container').classList.remove('show-up');
     }
 

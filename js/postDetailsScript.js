@@ -3,7 +3,7 @@
 // Get the id of post from url
 const urlParms = new URLSearchParams(window.location.search)
 const id = urlParms.get("postId")
-console.log(id)
+//console.log(id)
 
 async function getPost() {
     toggleLoader(true)
@@ -116,7 +116,7 @@ async function getPost() {
     }
     setUpUi()
 
-    console.log(post)
+    //console.log(post)
 
 }
 

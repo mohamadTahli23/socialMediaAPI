@@ -41,7 +41,7 @@
     
     <!-- ============== Modals ============= -->
     <!-- Login Modal -->
-        <div class="modal fade" id="loginModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="loginModel" style="z-index: 99999;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,7 +69,7 @@
         </div>
     <!-- //Login Modal// -->
     <!-- Register Modal -->
-        <div class="modal fade" id="registerModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="registerModel" style="z-index: 99999;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,7 +105,7 @@
         </div>
     <!-- //Register Modal// -->
     <!-- Create Post Modal -->
-        <div class="modal fade" id="createPostModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="createPostModel" style="z-index: 99999;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -138,7 +138,7 @@
         </div>
     <!-- //Create Post Modal// -->
     <!-- Create Post Modal -->
-        <div class="modal fade" id="deletePostModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deletePostModel" style="z-index: 99999;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -165,8 +165,8 @@
 
 
         <!-- Navigation Bar Cont -->
-        <div class="container">
-            <nav class="navbar  navbar-expand-lg  mt-2 shadow rounded">
+        <div class="container"  style="position: sticky !important; top: 0; z-index: 9999;">
+            <nav id="navbar" class="navbar  navbar-expand-lg  mt-2 shadow rounded " >
                 <div class="container-fluid">
                     <a class="navbar-brand fw-bold" href="index.html">Tahli</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
